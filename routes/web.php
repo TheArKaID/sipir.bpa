@@ -20,6 +20,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+Route::middleware('auth',)->group(function () {
+    Route::get('/app/dashboard', 'DashboardController@index')->name('app.dashboard');
+    Route::get('/app/mahasiswa', 'MahasiswaController@index')->name('app.mahasiswa');
+
 });
