@@ -18,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
         .nav-link{
@@ -73,38 +74,14 @@
                         <ul class="nav flex-column">
                             <li class="nav-item">
                             <a class="nav-link {{ Request::is('*/dashboard') ? 'active' : '' }}" href="{{ route('app.dashboard')}}">
-                                    <span data-feather="home"></span>
+                                    <i class="fa fa-home"></i>
                                     Dashboard <span class="sr-only">(current)</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::is('*/mahasiswa') ? 'active' : '' }}" href="{{ route('app.mahasiswa')}}">
-                                    <span data-feather="users"></span>
+                                    <i class="fa fa-users"></i>
                                     Mahasiswa
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span data-feather="shopping-cart"></span>
-                                    Products
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span data-feather="users"></span>
-                                    Customers
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span data-feather="bar-chart-2"></span>
-                                    Reports
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span data-feather="layers"></span>
-                                    Integrations
                                 </a>
                             </li>
                         </ul>
@@ -113,32 +90,14 @@
                             class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                             <span>Saved reports</span>
                             <a class="d-flex align-items-center text-muted" href="#">
-                                <span data-feather="plus-circle"></span>
+                                <i class="fa fa-plus-circle"></i>
                             </a>
                         </h6>
                         <ul class="nav flex-column mb-2">
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
-                                    <span data-feather="file-text"></span>
+                                    <i class="fa fa-file"></i>
                                     Current month
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span data-feather="file-text"></span>
-                                    Last quarter
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span data-feather="file-text"></span>
-                                    Social engagement
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span data-feather="file-text"></span>
-                                    Year-end sale
                                 </a>
                             </li>
                         </ul>
@@ -151,7 +110,7 @@
             </main>
             
             <!-- Icons -->
-            <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" integrity="sha512-F5QTlBqZlvuBEs9LQPqc1iZv2UMxcVXezbHzomzS6Df4MZMClge/8+gXrKw2fl5ysdk4rWjR0vKS7NNkfymaBQ==" crossorigin="anonymous"></script>
             <script>
                 feather.replace()
             </script>

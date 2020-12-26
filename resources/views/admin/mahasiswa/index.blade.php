@@ -69,7 +69,7 @@
                         <div class="card border-danger mb-3 text-center">
                             <div class="card-header bg-danger text-white">Tidak ada Data Mahasiswa</div>
                             <div class="card-body text-danger">
-                                <i width="1em" height="1em" data-feather="help-circle"></i>
+                                <i class="fa fa-question" style="font-size: 52pt"></i>
                                 <p class="card-text">Sepertinya anda belum menambahkan data Mahasiswa</p>
                             </div>
                         </div>

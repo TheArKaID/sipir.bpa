@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Kendaraan;
 use App\Mahasiswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -18,7 +19,7 @@ class MahasiswaController extends Controller
 
     public function getMahasiswa()
     {
-        return Mahasiswa::all();
+        return Kendaraan::all();
     }
 
     public function tambah(Request $request)
