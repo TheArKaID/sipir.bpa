@@ -38,4 +38,38 @@ class KendaraanController extends Controller
         
         return redirect()->back()->with('success', 'Kendaraan Ditambahkan');
     }
+
+    public function detail($id)
+    {
+        $kendaraan = Kendaraan::find($id);
+        if(!$kendaraan || $kendaraan->mahasiswa_id!=Auth::user()->id) {
+            return redirect()->back();
+        }
+
+        return view('mahasiswa.kendaraan.detail', [
+            'kendaraan'=>$kendaraan
+        ]);
+    }
+
+    public function simpan($id, Request $request)
+    {
+        $kendaraan = Kendaraan::find($id);
+        if(!$kendaraan || $kendaraan->mahasiswa_id!=Auth::user()->id) {
+            return redirect()->back();
+        }
+
+        $request->validate([
+            "jenis"=>"required|numeric|digits_between:1,2",
+            "merk"=>"required|string",
+            "nomor"=>"required|string",
+        ]);
+
+        $kendaraan->jenis = $request->jenis;
+        $kendaraan->merk = $request->merk;
+        $kendaraan->nomor = $request->nomor;
+        
+        $kendaraan->save();
+
+        return redirect()->back()->with('success', 'Kendaraan Disimpan');
+    }
 }

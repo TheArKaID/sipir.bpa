@@ -41,7 +41,7 @@
                                 </h6>
                                 @foreach ($kendaraan as $k)
                                 @if ($k->jenis==App\Kendaraan::$JENIS_RODA_DUA)
-                                    <a href="#{{ $k->id }}">
+                                    <a href="{{ route('mahasiswa.kendaraan.detail', $k->id) }}">
                                         <small>{{ $k->nomor }}</small> ({{ $k->merk }})
                                         <div class="progress mb-3" style="height: 5px">
                                             <div class="progress-bar bg-primary" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
@@ -60,7 +60,7 @@
                                 </h6>
                                 @foreach ($kendaraan as $k)
                                 @if ($k->jenis==App\Kendaraan::$JENIS_RODA_EMPAT)
-                                    <a href="#{{ $k->id }}">
+                                    <a href="{{ route('mahasiswa.kendaraan.detail', $k->id) }}">
                                         <small>{{ $k->nomor }}</small> ({{ $k->merk }})
                                         <div class="progress mb-3" style="height: 5px">
                                             <div class="progress-bar bg-primary" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
