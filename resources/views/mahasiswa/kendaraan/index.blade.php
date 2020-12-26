@@ -36,26 +36,38 @@
                     <div class="col-sm-6 mb-3">
                         <div class="card h-100">
                             <div class="card-body">
-                                <h6 class="d-flex align-items-center mb-3"><i
-                                        class="material-icons text-info mr-2">Data Kendaraan</i> Roda 2</h6>
-                                <small>Nomor Kendaraan</small> (Merk)
-                                <div class="progress mb-3" style="height: 5px">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 100%"
-                                        aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                                <h6 class="d-flex align-items-center mb-3">
+                                    <i class="material-icons text-info mr-2">Kendaraan</i> Roda 2
+                                </h6>
+                                @foreach ($kendaraan as $k)
+                                @if ($k->jenis==App\Kendaraan::$JENIS_RODA_DUA)
+                                    <a href="#{{ $k->id }}">
+                                        <small>{{ $k->nomor }}</small> ({{ $k->merk }})
+                                        <div class="progress mb-3" style="height: 5px">
+                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </a>
+                                @endif
+                                @endforeach
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6 mb-3">
                         <div class="card h-100">
                             <div class="card-body">
-                                <h6 class="d-flex align-items-center mb-3"><i
-                                        class="material-icons text-info mr-2">Data Kendaraan</i> Roda 4</h6>
-                                <small>Nomor Kendaraan</small> (Merk)
-                                <div class="progress mb-3" style="height: 5px">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 100%"
-                                        aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                                <h6 class="d-flex align-items-center mb-3">
+                                    <i class="material-icons text-info mr-2">Kendaraan</i> Roda 4
+                                </h6>
+                                @foreach ($kendaraan as $k)
+                                @if ($k->jenis==App\Kendaraan::$JENIS_RODA_EMPAT)
+                                    <a href="#{{ $k->id }}">
+                                        <small>{{ $k->nomor }}</small> ({{ $k->merk }})
+                                        <div class="progress mb-3" style="height: 5px">
+                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </a>
+                                @endif
+                                @endforeach
                             </div>
                         </div>
                     </div>

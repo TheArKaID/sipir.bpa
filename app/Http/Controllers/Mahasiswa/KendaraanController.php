@@ -11,7 +11,14 @@ class KendaraanController extends Controller
 {
     public function index()
     {
-        return view('mahasiswa.kendaraan.index');
+        return view('mahasiswa.kendaraan.index', [
+            'kendaraan'=>$this->getKendaraan()
+        ]);
+    }
+
+    public function getKendaraan()
+    {
+        return Kendaraan::where('mahasiswa_id', Auth::user()->id)->get();
     }
 
     public function tambah(Request $request)
