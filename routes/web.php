@@ -22,6 +22,7 @@ Auth::routes();
 
 Route::middleware('auth',)->group(function () {
     Route::get('/app/dashboard', 'DashboardController@index')->name('app.dashboard');
+    
     Route::get('/app/mahasiswa', 'MahasiswaController@index')->name('app.mahasiswa');
-
+    Route::post('/app/mahasiswa', 'MahasiswaController@tambah')->name('app.mahasiswa.tambah');
 });
