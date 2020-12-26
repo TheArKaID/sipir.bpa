@@ -45,21 +45,40 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>
-                                <a href="#" class="btn btn-warning">Edit</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                            </td>
-                        </tr>
+                        @if (count($mahasiswa)!=0)
+                        @foreach ($mahasiswa as $m)
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>{{$m->nama}}</td>
+                                <td>{{$m->nim}}</td>
+                                <td>{{0}}</td>
+                                <td>
+                                    <a href="#{{ $m->id }}" class="btn btn-warning">Edit</a>
+                                    <a href="#{{ $m->id }}" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                        @endif
                     </tbody>
                 </table>
-              </div>              
+                
+                @if (count($mahasiswa)==0)
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div class="card border-danger mb-3 text-center">
+                            <div class="card-header bg-danger text-white">Tidak ada Data Mahasiswa</div>
+                            <div class="card-body text-danger">
+                                <i width="1em" height="1em" data-feather="help-circle"></i>
+                                <p class="card-text">Sepertinya anda belum menambahkan data Mahasiswa</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                @endif
+            </div>          
         </div>
-        
     </div>
 </div>
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModal" aria-hidden="true">
