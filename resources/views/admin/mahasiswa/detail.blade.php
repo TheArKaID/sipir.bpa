@@ -44,29 +44,79 @@
             </div>
             <div class="col-md-8">
                 <div class="row gutters-sm">
+                    
                     <div class="col-sm-6 mb-3">
                         <div class="card h-100">
                             <div class="card-body">
-                                <h6 class="d-flex align-items-center mb-3"><i
-                                        class="material-icons text-info mr-2">Data Kendaraan</i> Roda 2</h6>
-                                <small>Nomor Kendaraan</small> (Merk)
-                                <div class="progress mb-3" style="height: 5px">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 100%"
-                                        aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                                <h6 class="d-flex align-items-center mb-3">
+                                    <i class="material-icons text-info mr-2">Kendaraan</i> Roda 2
+                                </h6>
+                                @php
+                                    $K1 = 0;
+                                    $K2 = 0;
+                                @endphp
+                                @foreach ($mahasiswa->kendaraans as $k)
+                                @if ($k->jenis==App\Kendaraan::$JENIS_RODA_DUA)
+                                    @php
+                                        $K1++;
+                                    @endphp
+                                    <a href="{{ '#'. $k->id }}">
+                                        <small>{{ $k->nomor }}</small> ({{ $k->merk }})
+                                        <div class="progress mb-3" style="height: 5px">
+                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </a>
+                                @endif
+                                @endforeach
+                                @if ($K1==0)
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="card border-danger mb-3 text-center">
+                                                <div class="card-header bg-danger text-white">Tidak ada Kendaraan</div>
+                                                <div class="card-body text-danger">
+                                                    <i class="fa fa-motorcycle" style="font-size: 52pt"></i>
+                                                    <p class="card-text">Anda Tidak Memiliki Kendaraan Roda 2</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
+                    
                     <div class="col-sm-6 mb-3">
                         <div class="card h-100">
                             <div class="card-body">
-                                <h6 class="d-flex align-items-center mb-3"><i
-                                        class="material-icons text-info mr-2">Data Kendaraan</i> Roda 4</h6>
-                                <small>Nomor Kendaraan</small> (Merk)
-                                <div class="progress mb-3" style="height: 5px">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 100%"
-                                        aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                                <h6 class="d-flex align-items-center mb-3">
+                                    <i class="material-icons text-info mr-2">Kendaraan</i> Roda 4
+                                </h6>
+                                @foreach ($mahasiswa->kendaraans as $k)
+                                @if ($k->jenis==App\Kendaraan::$JENIS_RODA_EMPAT)
+                                @php
+                                    $K2++;
+                                @endphp
+                                    <a href="{{ '#'. $k->id }}">
+                                        <small>{{ $k->nomor }}</small> ({{ $k->merk }})
+                                        <div class="progress mb-3" style="height: 5px">
+                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </a>
+                                @endif
+                                @endforeach
+                                @if ($K2==0)
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="card border-danger mb-3 text-center">
+                                                <div class="card-header bg-danger text-white">Tidak ada Kendaraan</div>
+                                                <div class="card-body text-danger">
+                                                    <i class="fa fa-car-side" style="font-size: 52pt"></i>
+                                                    <p class="card-text">Anda Tidak Memiliki Kendaraan Roda 4</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -80,7 +130,48 @@
                 </p>
                 <div class="card">
                     <div class="card-body">
-                        <table></table>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Waktu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($mahasiswa->kendaraans as $kendaraan)
+                                    @if (count($kendaraan->histories)!=0)
+                                        @for ($i = count($kendaraan->histories)-1; $i > count($kendaraan->histories)-11; $i--)
+                                        @php
+                                            if($i<0){
+                                                break;
+                                            }
+                                            $h = $kendaraan->histories[$i];
+                                        @endphp
+                                            <tr>
+                                                <td>{{$h->tipe==App\History::$KENDARAAN_MASUK ? 'Masuk' : 'Keluar'}}</td>
+                                                <td>{{$h->waktu}}</td>
+                                            </tr>
+                                        @endfor
+                                    @else
+                                    <tr>
+                                        <td colspan="2">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="card border-danger mb-3 text-center">
+                                                        <div class="card-header bg-danger text-white">Tidak ada History Parkir</div>
+                                                        <div class="card-body text-danger">
+                                                            <i class="fa fa-exclamation-circle" style="font-size: 52pt"></i>
+                                                            <p class="card-text">Sepertinya anda belum Pernah Parkir dengan Kendaraan Ini</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    @endif
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

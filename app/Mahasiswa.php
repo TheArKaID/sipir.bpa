@@ -43,4 +43,9 @@ class Mahasiswa extends Authenticatable
     protected $hidden = [
         'password'
     ];
+
+    public function kendaraans()
+    {
+        return $this->hasMany('App\Kendaraan');
+    }
 }
