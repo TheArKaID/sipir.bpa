@@ -79,7 +79,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{ Request::is('*/mahasiswa') ? 'active' : '' }}" href="{{ route('app.mahasiswa')}}">
+                                <a class="nav-link {{ Request::is('*mahasiswa*') ? 'active' : '' }}" href="{{ route('app.mahasiswa')}}">
                                     <i class="fa fa-users"></i>
                                     Mahasiswa
                                 </a>
@@ -111,9 +111,7 @@
             
             <!-- Icons -->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" integrity="sha512-F5QTlBqZlvuBEs9LQPqc1iZv2UMxcVXezbHzomzS6Df4MZMClge/8+gXrKw2fl5ysdk4rWjR0vKS7NNkfymaBQ==" crossorigin="anonymous"></script>
-            <script>
-                feather.replace()
-            </script>
+            
             {{-- Script --}}
             <script src="{{ asset('js/jquery/jquery.min.js') }}"></script>
             @yield('scripts')

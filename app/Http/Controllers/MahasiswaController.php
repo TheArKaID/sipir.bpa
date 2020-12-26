@@ -92,4 +92,17 @@ class MahasiswaController extends Controller
         
         return redirect()->back()->with('success', 'Mahasiswa Updated');
     }
+
+    public function hapus($id, Request $request)
+    {
+        $mahasiswa = Mahasiswa::find($id);
+        
+        if(!$mahasiswa) {
+            return redirect()->back();
+        }
+
+        $mahasiswa->delete();
+
+        return redirect()->back()->with('success', 'Mahasiswa Deleted');
+    }
 }

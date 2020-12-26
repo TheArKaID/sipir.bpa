@@ -54,7 +54,7 @@
                                 <td>{{0}}</td>
                                 <td>
                                     <a href="{{ route('app.mahasiswa.edit', $m->id) }}" id="btnEdit" class="btn btn-warning">Edit</a>
-                                    <a href="#{{ $m->id }}" class="btn btn-danger">Delete</a>
+                                    <a onclick="deleteMe('{{ route('app.mahasiswa.hapus', $m->id) }}')"  class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -132,4 +132,32 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Hapus Mahasiswa ini ?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="" id="deleteForm" method="POST">
+                {{ csrf_field() }}
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-danger">Hapus</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@endsection
+
+@section('scripts')
+    <script>
+        function deleteMe(url) {
+            document.getElementById("deleteForm").action = url;
+        }
+    </script>
 @endsection

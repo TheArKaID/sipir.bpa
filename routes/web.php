@@ -27,4 +27,5 @@ Route::middleware('auth',)->group(function () {
     Route::post('/app/mahasiswa', 'MahasiswaController@tambah')->name('app.mahasiswa.tambah');
     Route::get('/app/mahasiswa/{id}', 'MahasiswaController@edit')->name('app.mahasiswa.edit');
     Route::post('/app/mahasiswa/{id}', 'MahasiswaController@simpan')->name('app.mahasiswa.simpan');
+    Route::post('/app/mahasiswa/delete/{id}', 'MahasiswaController@hapus')->name('app.mahasiswa.hapus');
 });
