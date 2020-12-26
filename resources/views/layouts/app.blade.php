@@ -41,13 +41,11 @@
         <ul class="navbar-nav px-3" style="right: 15px !important; position: fixed;">
             @guest
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                <a class="nav-link" href="{{ route('login') }}">{{ __('Admin') }}</a>
             </li>
-            @if (Route::has('register'))
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                <a class="nav-link" href="{{ route('mahasiswa.login') }}">{{ __('Mahasiswa') }}</a>
             </li>
-            @endif
             @else
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

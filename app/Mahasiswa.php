@@ -35,4 +35,12 @@ class Mahasiswa extends Authenticatable
      */
     protected $fillable = ['nim', 'nama', 'username', 'email', 'password', 'created_at', 'updated_at'];
 
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password'
+    ];
 }

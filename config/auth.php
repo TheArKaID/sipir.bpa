@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'admin',
         ],
+        'mahasiswa' => [
+            'driver' => 'session',
+            'provider' => 'mahasiswa',
+        ],
 
         'api' => [
             'driver' => 'token',
@@ -70,7 +74,11 @@ return [
             'driver' => 'eloquent',
             'model' => App\Admin::class,
         ],
-
+        'mahasiswa' => [
+            'driver' => 'eloquent',
+            'model' => App\Mahasiswa::class,
+        ],
+        
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
