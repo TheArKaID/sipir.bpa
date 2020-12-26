@@ -66,6 +66,7 @@
 
     <div class="container-fluid">
         <div class="row">
+            @if (Auth::check())
             <nav class="col-md-2 d-none d-md-block bg-light sidebar">
                 <div class="sidebar-sticky col-md-2 px-1 bg-dark position-fixed">
                     @if (Auth::guard('web')->user())
@@ -98,12 +99,13 @@
                             </a>
                         </li>
                     </ul>
-                    @else
+                    @endif
+                    @if(Auth::guard('mahasiswa')->user())
                     <ul class="nav flex-column">
                         <li class="nav-item">
                         <a class="nav-link {{ Request::is('*/dashboard') ? 'active' : '' }}" href="#">
                                 <i class="fa fa-home"></i>
-                                Dashboard <span class="sr-only">(current)</span>
+                                Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
@@ -116,6 +118,7 @@
                     @endif
                 </div>
             </nav>
+            @endif
 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 @yield('content')
