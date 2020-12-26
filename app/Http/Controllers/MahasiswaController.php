@@ -57,4 +57,39 @@ class MahasiswaController extends Controller
             'mahasiswa'=>$mahasiswa
         ]);
     }
+
+    public function simpan($id, Request $request)
+    {
+        $request->validate([
+            "nama"=>"required|string",
+            "nim"=>"required|numeric|digits:11",
+            "email"=>"required|email",
+            "username"=>"required|string"
+        ]);
+
+        $mahasiswa = Mahasiswa::find($id);
+        
+        if(!$mahasiswa) {
+            return redirect()->back();
+        }
+
+        if($request->password || $request->repassword) {
+            $request->validate([
+                "password"=>"required|string|min:8",
+                "repassword"=>"required|string|min:8"
+            ]);
+            if(!($request->password==$request->repassword)){
+                return redirect()->back()->withErrors(['errors'=>'Password and Repassword must same'])->withInput();
+            }
+            $mahasiswa->password = Hash::make($request->password);
+        }
+
+        $mahasiswa->nama = $request->nama;
+        $mahasiswa->nim = $request->nim;
+        $mahasiswa->email = $request->email;
+        $mahasiswa->username = $request->username;
+        $mahasiswa->save();
+        
+        return redirect()->back()->with('success', 'Mahasiswa Updated');
+    }
 }

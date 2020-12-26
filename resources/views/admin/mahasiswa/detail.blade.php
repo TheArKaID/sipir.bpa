@@ -128,12 +128,12 @@
                         <div class="form-group col-md-6">
                             <label for="password">New Password</label>
                             <input type="password" class="form-control" id="newpassword" name="password"
-                                placeholder="New Password" required>
+                                placeholder="New Password">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="repassword">Re New Password</label>
                             <input type="password" class="form-control" id="renewpassword" name="repassword"
-                                placeholder="Re New Password" required>
+                                placeholder="Re New Password">
                         </div>
                     </div>
                 </div>
