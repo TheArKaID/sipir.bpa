@@ -5,7 +5,7 @@
     <h1 class="h2">Data Kendaraan</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
         <div class="btn-group mr-2">
-            <a href="#" class="btn btn-primary">Tambah</a>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Tambah</button>
         </div>
     </div>
 </div>
@@ -61,6 +61,50 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModal" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Kendaraan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('mahasiswa.kendaraan.tambah') }}" method="POST">
+                {{ csrf_field() }}
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="jenis">Jenis Kendaraan</label>
+                            <select name="jenis" class="custom-select" required>
+                                <option selected hidden disabled>~ Jenis ~</option>
+                                <option value="1">Roda Dua</option>
+                                <option value="2">Roda Empat</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="merk">Merk</label>
+                            <input type="text" class="form-control" id="merk" name="merk" placeholder="Merk" value="{{ old('merk') }}" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="nomor">Nomor</label>
+                            <input type="text" class="form-control" id="nomor" name="nomor" placeholder="Nomor" value="{{ old('nomor') }}" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-success">Tambah</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

@@ -35,5 +35,7 @@ Route::post('/student/login', "Auth\MahasiswaAuthController@postLogin")->name('m
 
 Route::middleware('auth:mahasiswa',)->group(function () {
     Route::get('/m', "Mahasiswa\MahasiswaController@index")->name('mahasiswa.app');
+    
     Route::get('/m/kendaraan', "Mahasiswa\KendaraanController@index")->name('mahasiswa.kendaraan');
+    Route::post('/m/kendaraan', "Mahasiswa\KendaraanController@tambah")->name('mahasiswa.kendaraan.tambah');
 });

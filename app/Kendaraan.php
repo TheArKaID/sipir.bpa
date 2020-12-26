@@ -15,6 +15,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Kendaraan extends Model
 {
+    public static $JENIS_RODA_DUA = 1;
+    public static $JENIS_RODA_EMPAT = 2;
     /**
      * The table associated with the model.
      * 
