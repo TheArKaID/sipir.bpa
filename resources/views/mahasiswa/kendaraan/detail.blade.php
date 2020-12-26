@@ -65,23 +65,42 @@
                         <div class="card h-100">
                             <div class="card-body">
                                 <h6 class="d-flex align-items-center mb-3">
-                                    <i class="material-icons text-info mr-2">History Parkir</i>
+                                    <i class="material-icons text-info mr-2">History Parkir</i> Last 10 Activities
                                 </h6>
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
                                             <th scope="col">Status</th>
-                                            <th scope="col">Jam</th>
+                                            <th scope="col">Waktu</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if (count($kendaraan->histories)!=0)
-                                        @foreach ($kendaraan->histories as $h)
-                                            <tr>
-                                                <td>{{$h->tipe==App\History::$KENDARAAN_MASUK ? 'Masuk' : 'Keluar'}}</td>
-                                                <td>{{$h->waktu}}</td>
-                                            </tr>
-                                        @endforeach
+                                        @if (count($kendaraan->histories)==0)
+                                            @for ($i = count($kendaraan->histories)-1; $i > count($kendaraan->histories)-11; $i--)
+                                            @php
+                                                $h = $kendaraan->histories[$i];
+                                            @endphp
+                                                <tr>
+                                                    <td>{{$h->tipe==App\History::$KENDARAAN_MASUK ? 'Masuk' : 'Keluar'}}</td>
+                                                    <td>{{$h->waktu}}</td>
+                                                </tr>
+                                            @endfor
+                                        @else
+                                        <tr>
+                                            <td colspan="2">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="card border-danger mb-3 text-center">
+                                                            <div class="card-header bg-danger text-white">Tidak ada History Parkir</div>
+                                                            <div class="card-body text-danger">
+                                                                <i class="fa fa-exclamation-circle" style="font-size: 52pt"></i>
+                                                                <p class="card-text">Sepertinya anda belum Pernah Parkir dengan Kendaraan Ini</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
                                         @endif
                                     </tbody>
                                 </table>
