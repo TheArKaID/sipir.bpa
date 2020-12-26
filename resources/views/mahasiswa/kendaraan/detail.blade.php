@@ -75,7 +75,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if (count($kendaraan->histories)==0)
+                                        @if (count($kendaraan->histories)!=0)
                                             @for ($i = count($kendaraan->histories)-1; $i > count($kendaraan->histories)-11; $i--)
                                             @php
                                                 $h = $kendaraan->histories[$i];

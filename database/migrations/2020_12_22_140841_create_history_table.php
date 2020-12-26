@@ -17,7 +17,7 @@ class CreateHistoryTable extends Migration
             $table->bigIncrements('id');
             $table->integer('kendaraan_id');
             $table->tinyInteger('tipe');
-            $table->time('waktu');
+            $table->dateTime('waktu');
             $table->timestamps();
         });
     }

@@ -39,8 +39,15 @@
                                 <h6 class="d-flex align-items-center mb-3">
                                     <i class="material-icons text-info mr-2">Kendaraan</i> Roda 2
                                 </h6>
+                                @php
+                                    $K1 = 0;
+                                    $K2 = 0;
+                                @endphp
                                 @foreach ($kendaraan as $k)
                                 @if ($k->jenis==App\Kendaraan::$JENIS_RODA_DUA)
+                                    @php
+                                        $K1++;
+                                    @endphp
                                     <a href="{{ route('mahasiswa.kendaraan.detail', $k->id) }}">
                                         <small>{{ $k->nomor }}</small> ({{ $k->merk }})
                                         <div class="progress mb-3" style="height: 5px">
@@ -49,6 +56,19 @@
                                     </a>
                                 @endif
                                 @endforeach
+                                @if ($K1==0)
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="card border-danger mb-3 text-center">
+                                                <div class="card-header bg-danger text-white">Tidak ada Kendaraan</div>
+                                                <div class="card-body text-danger">
+                                                    <i class="fa fa-motorcycle" style="font-size: 52pt"></i>
+                                                    <p class="card-text">Anda Tidak Memiliki Kendaraan Roda 2</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -60,6 +80,9 @@
                                 </h6>
                                 @foreach ($kendaraan as $k)
                                 @if ($k->jenis==App\Kendaraan::$JENIS_RODA_EMPAT)
+                                @php
+                                    $K2++;
+                                @endphp
                                     <a href="{{ route('mahasiswa.kendaraan.detail', $k->id) }}">
                                         <small>{{ $k->nomor }}</small> ({{ $k->merk }})
                                         <div class="progress mb-3" style="height: 5px">
@@ -68,6 +91,19 @@
                                     </a>
                                 @endif
                                 @endforeach
+                                @if ($K2==0)
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="card border-danger mb-3 text-center">
+                                                <div class="card-header bg-danger text-white">Tidak ada Kendaraan</div>
+                                                <div class="card-body text-danger">
+                                                    <i class="fa fa-car-side" style="font-size: 52pt"></i>
+                                                    <p class="card-text">Anda Tidak Memiliki Kendaraan Roda 4</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
