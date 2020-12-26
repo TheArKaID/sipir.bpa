@@ -15,14 +15,6 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request)
     {
-        if(Auth::check()) {
-            if(Auth::guard('mahasiswa')){
-                return '/student/login';
-            } else {
-                return '/login';
-            }
-        } else {
-            return '/login';
-        }
+        
     }
 }

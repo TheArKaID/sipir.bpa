@@ -11,7 +11,7 @@
                 {{ session('status') }}
             </div>
         @endif
-        Mahasiswa
+        Mahasiswa {{ Auth::user()->nama}}
     </div>
 </div>
 @endsection

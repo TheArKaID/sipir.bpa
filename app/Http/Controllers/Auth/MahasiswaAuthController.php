@@ -18,7 +18,7 @@ class MahasiswaAuthController extends Controller
 
     public function login()
     {
-        if(Auth::guard('mahasiswa')){
+        if(Auth::guard('mahasiswa')->user()){
             return redirect(route('mahasiswa.app'));
         }
         return view('auth.m-login');

@@ -49,7 +49,7 @@
             @else
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{ Auth::user()->name }} <span class="caret"></span>
+                    {{ Auth::user()->nama }} <span class="caret"></span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="profileDropdown">
                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -66,42 +66,56 @@
 
     <div class="container-fluid">
         <div class="row">
-            @if (Auth::check())
-                <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-                    <div class="sidebar-sticky col-md-2 px-1 bg-dark position-fixed">
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                            <a class="nav-link {{ Request::is('*/dashboard') ? 'active' : '' }}" href="{{ route('app.dashboard')}}">
-                                    <i class="fa fa-home"></i>
-                                    Dashboard <span class="sr-only">(current)</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link {{ Request::is('*mahasiswa*') ? 'active' : '' }}" href="{{ route('app.mahasiswa')}}">
-                                    <i class="fa fa-users"></i>
-                                    Mahasiswa
-                                </a>
-                            </li>
-                        </ul>
-
-                        <h6
-                            class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                            <span>Saved reports</span>
-                            <a class="d-flex align-items-center text-muted" href="#">
-                                <i class="fa fa-plus-circle"></i>
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky col-md-2 px-1 bg-dark position-fixed">
+                    @if (Auth::guard('web')->user())
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                        <a class="nav-link {{ Request::is('*/dashboard') ? 'active' : '' }}" href="{{ route('app.dashboard')}}">
+                                <i class="fa fa-home"></i>
+                                Dashboard <span class="sr-only">(current)</span>
                             </a>
-                        </h6>
-                        <ul class="nav flex-column mb-2">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="fa fa-file"></i>
-                                    Current month
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            @endif
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Request::is('*mahasiswa*') ? 'active' : '' }}" href="{{ route('app.mahasiswa')}}">
+                                <i class="fa fa-users"></i>
+                                Mahasiswa
+                            </a>
+                        </li>
+                    </ul>
+                    <h6
+                        class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                        <span>Saved reports</span>
+                        <a class="d-flex align-items-center text-muted" href="#">
+                            <i class="fa fa-plus-circle"></i>
+                        </a>
+                    </h6>
+                    <ul class="nav flex-column mb-2">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fa fa-file"></i>
+                                Current month
+                            </a>
+                        </li>
+                    </ul>
+                    @else
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                        <a class="nav-link {{ Request::is('*/dashboard') ? 'active' : '' }}" href="#">
+                                <i class="fa fa-home"></i>
+                                Dashboard <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Request::is('*mahasiswa*') ? 'active' : '' }}" href="#">
+                                <i class="fa fa-motorcycle"></i>
+                                Kendaraan
+                            </a>
+                        </li>
+                    </ul>
+                    @endif
+                </div>
+            </nav>
 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 @yield('content')
