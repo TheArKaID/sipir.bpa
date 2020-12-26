@@ -50,7 +50,8 @@
                                         <input type="text" class="form-control" id="Nomor" name="nomor" placeholder="Nomor Kendaraan" value="{{ $kendaraan->nomor }}" required>
                                     </div>
                                     <div class="form-group col-md-12">
-                                        <button type="submit" class="btn btn-success col-md-12">Simpan</button>
+                                        <button type="submit" class="btn btn-success col-md-12 mb-1">Simpan</button>
+                                        <button type="button" class="btn btn-danger col-md-12" data-toggle="modal" data-target="#deleteModal">Hapus</button>
                                     </div>
                                 </form>
                             </div>
@@ -96,6 +97,26 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Hapus Kendaraan ini ?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('mahasiswa.kendaraan.hapus', $kendaraan->id) }}" id="deleteForm" method="POST">
+                {{ csrf_field() }}
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-danger">Hapus</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

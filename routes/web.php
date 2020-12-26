@@ -40,4 +40,5 @@ Route::middleware('auth:mahasiswa',)->group(function () {
     Route::post('/m/kendaraan', "Mahasiswa\KendaraanController@tambah")->name('mahasiswa.kendaraan.tambah');
     Route::get('/m/kendaraan/{id}', "Mahasiswa\KendaraanController@detail")->name('mahasiswa.kendaraan.detail');
     Route::post('/m/kendaraan/{id}', "Mahasiswa\KendaraanController@simpan")->name('mahasiswa.kendaraan.simpan');
+    Route::post('/m/kendaraan/delete/{id}', "Mahasiswa\KendaraanController@hapus")->name('mahasiswa.kendaraan.hapus');
 });

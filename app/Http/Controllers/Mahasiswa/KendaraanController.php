@@ -72,4 +72,16 @@ class KendaraanController extends Controller
 
         return redirect()->back()->with('success', 'Kendaraan Disimpan');
     }
+
+    public function hapus($id, Request $request)
+    {
+        $kendaraan = Kendaraan::find($id);
+        if(!$kendaraan || $kendaraan->mahasiswa_id!=Auth::user()->id) {
+            return redirect()->back();
+        }
+
+        $kendaraan->delete();
+
+        return redirect(route('mahasiswa.kendaraan'))->with('success', 'Kendaraan Dihapus');
+    }
 }
