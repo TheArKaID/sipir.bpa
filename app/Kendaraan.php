@@ -36,4 +36,8 @@ class Kendaraan extends Model
      */
     protected $fillable = ['mahasiswa_id', 'jenis', 'merk', 'nomor', 'created_at', 'updated_at'];
 
+    public function histories()
+    {
+        return $this->hasMany('App\History');
+    }
 }

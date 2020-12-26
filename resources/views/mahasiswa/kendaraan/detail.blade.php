@@ -70,26 +70,19 @@
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Nomor</th>
                                             <th scope="col">Status</th>
                                             <th scope="col">Jam</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {{-- @if (count($mahasiswa)!=0)
-                                        @foreach ($mahasiswa as $m)
+                                        @if (count($kendaraan->histories)!=0)
+                                        @foreach ($kendaraan->histories as $h)
                                             <tr>
-                                                <th scope="row">1</th>
-                                                <td>{{$m->nama}}</td>
-                                                <td>{{$m->nim}}</td>
-                                                <td>{{0}}</td>
-                                                <td>
-                                                    <a href="{{ route('app.mahasiswa.edit', $m->id) }}" id="btnEdit" class="btn btn-warning">Edit</a>
-                                                    <a onclick="deleteMe('{{ route('app.mahasiswa.hapus', $m->id) }}')"  class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</a>
-                                                </td>
+                                                <td>{{$h->tipe==App\History::$KENDARAAN_MASUK ? 'Masuk' : 'Keluar'}}</td>
+                                                <td>{{$h->waktu}}</td>
                                             </tr>
                                         @endforeach
-                                        @endif --}}
+                                        @endif
                                     </tbody>
                                 </table>
                             </div>

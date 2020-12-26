@@ -14,6 +14,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class History extends Model
 {
+    public static $KENDARAAN_KELUAR = 0;
+    public static $KENDARAAN_MASUK = 1;
+
     /**
      * The table associated with the model.
      * 
