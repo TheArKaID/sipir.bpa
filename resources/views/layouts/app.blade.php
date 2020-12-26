@@ -74,7 +74,7 @@
                         <li class="nav-item">
                         <a class="nav-link {{ Request::is('*/dashboard') ? 'active' : '' }}" href="{{ route('app.dashboard')}}">
                                 <i class="fa fa-home"></i>
-                                Dashboard <span class="sr-only">(current)</span>
+                                Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
@@ -103,13 +103,13 @@
                     @if(Auth::guard('mahasiswa')->user())
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                        <a class="nav-link {{ Request::is('*/dashboard') ? 'active' : '' }}" href="#">
+                        <a class="nav-link {{ Request::is('m') ? 'active' : '' }}" href="#">
                                 <i class="fa fa-home"></i>
                                 Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::is('*mahasiswa*') ? 'active' : '' }}" href="#">
+                            <a class="nav-link {{ Request::is('m/kendaraan*') ? 'active' : '' }}" href="{{ route('mahasiswa.kendaraan') }}">
                                 <i class="fa fa-motorcycle"></i>
                                 Kendaraan
                             </a>
