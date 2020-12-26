@@ -53,7 +53,7 @@
                                 <td>{{$m->nim}}</td>
                                 <td>{{0}}</td>
                                 <td>
-                                    <a href="#{{ $m->id }}" class="btn btn-warning">Edit</a>
+                                    <a href="{{ route('app.mahasiswa.edit', $m->id) }}" id="btnEdit" class="btn btn-warning">Edit</a>
                                     <a href="#{{ $m->id }}" class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>

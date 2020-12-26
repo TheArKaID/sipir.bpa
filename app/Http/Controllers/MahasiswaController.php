@@ -11,7 +11,7 @@ class MahasiswaController extends Controller
     public function index()
     {
         $mahasiswa = $this->getMahasiswa();
-        return view('admin.mahasiswa', [
+        return view('admin.mahasiswa.index', [
             'mahasiswa'=>$mahasiswa
         ]);
     }
@@ -45,5 +45,16 @@ class MahasiswaController extends Controller
         ]);
         
         return redirect()->back()->with('success', 'Mahasiswa Added');
+    }
+
+    public function edit($id)
+    {
+        $mahasiswa = Mahasiswa::find($id);
+        if(!$mahasiswa) {
+            return redirect()->back();
+        }
+        return view('admin.mahasiswa.detail', [
+            'mahasiswa'=>$mahasiswa
+        ]);
     }
 }

@@ -25,4 +25,6 @@ Route::middleware('auth',)->group(function () {
     
     Route::get('/app/mahasiswa', 'MahasiswaController@index')->name('app.mahasiswa');
     Route::post('/app/mahasiswa', 'MahasiswaController@tambah')->name('app.mahasiswa.tambah');
+    Route::get('/app/mahasiswa/{id}', 'MahasiswaController@edit')->name('app.mahasiswa.edit');
+    Route::post('/app/mahasiswa/{id}', 'MahasiswaController@edit')->name('app.mahasiswa.simpan');
 });
