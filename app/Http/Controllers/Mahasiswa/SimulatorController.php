@@ -25,6 +25,11 @@ class SimulatorController extends Controller
 
     public function parkir(Request $request)
     {
+        $request->validate([
+            "tipe"=>"required|numeric|digits_between:0,1",
+            "id"=>"required|numeric",
+        ]);
+
         $kendaraan = Kendaraan::find($request->id);
         if(!$kendaraan || $kendaraan->mahasiswa_id!=Auth::user()->id) {
             return redirect()->back();
