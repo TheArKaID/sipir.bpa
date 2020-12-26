@@ -114,6 +114,12 @@
                                 Kendaraan
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Request::is('m/simulator*') ? 'active' : '' }}" href="{{ route('mahasiswa.simulator') }}">
+                                <i class="fab fa-simplybuilt"></i>
+                                Simulator
+                            </a>
+                        </li>
                     </ul>
                     @endif
                 </div>

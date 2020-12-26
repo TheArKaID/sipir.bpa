@@ -41,4 +41,7 @@ Route::middleware('auth:mahasiswa',)->group(function () {
     Route::get('/m/kendaraan/{id}', "Mahasiswa\KendaraanController@detail")->name('mahasiswa.kendaraan.detail');
     Route::post('/m/kendaraan/{id}', "Mahasiswa\KendaraanController@simpan")->name('mahasiswa.kendaraan.simpan');
     Route::post('/m/kendaraan/delete/{id}', "Mahasiswa\KendaraanController@hapus")->name('mahasiswa.kendaraan.hapus');
+
+    Route::get('/m/simulator', "Mahasiswa\SimulatorController@index")->name('mahasiswa.simulator');
+    Route::post('/m/simulator', "Mahasiswa\SimulatorController@parkir")->name('mahasiswa.simulator.post');
 });
