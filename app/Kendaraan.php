@@ -52,4 +52,13 @@ class Kendaraan extends Model
             }
         });
     }
+
+    public function getIsParked()
+    {
+        $last = $this->histories()->orderBy('waktu', 'desc')->first();
+        if($last){
+            return $last->tipe==1;
+        }
+        return false;
+    }
 }

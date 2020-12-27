@@ -84,8 +84,7 @@
                             </a>
                         </li>
                     </ul>
-                    <h6
-                        class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    {{-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                         <span>Saved reports</span>
                         <a class="d-flex align-items-center text-muted" href="#">
                             <i class="fa fa-plus-circle"></i>
@@ -98,7 +97,7 @@
                                 Current month
                             </a>
                         </li>
-                    </ul>
+                    </ul> --}}
                     @endif
                     @if(Auth::guard('mahasiswa')->user())
                     <ul class="nav flex-column">
