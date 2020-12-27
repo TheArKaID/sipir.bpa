@@ -48,4 +48,16 @@ class Mahasiswa extends Authenticatable
     {
         return $this->hasMany('App\Kendaraan');
     }
+    
+    protected static function boot() {
+        parent::boot();
+
+        static::deleting(function($mahasiswa) {
+            if($mahasiswa->kendaraans) {
+                foreach($mahasiswa->kendaraans as $k) {
+                    $k->delete();
+                };
+            }
+        });
+    }
 }

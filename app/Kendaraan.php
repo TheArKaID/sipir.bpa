@@ -40,4 +40,16 @@ class Kendaraan extends Model
     {
         return $this->hasMany('App\History');
     }
+    
+    protected static function boot() {
+        parent::boot();
+        
+        static::deleting(function($kendaraan) {
+            if($kendaraan->histories) {
+                foreach($kendaraan->histories as $h) {
+                    $h->delete();
+                };
+            }
+        });
+    }
 }
