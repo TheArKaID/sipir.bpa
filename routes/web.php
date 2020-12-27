@@ -15,12 +15,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('app.dashboard');
 });
 
 Auth::routes();
 
 Route::middleware('auth:web',)->group(function () {
+    Route::get('/app', function ()
+    {
+        return redirect()->route('app.dashboard');
+    });
     Route::get('/app/dashboard', 'Admin\DashboardController@index')->name('app.dashboard');
     
     Route::get('/app/mahasiswa', 'Admin\MahasiswaController@index')->name('app.mahasiswa');

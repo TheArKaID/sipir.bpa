@@ -103,7 +103,7 @@
                     @if(Auth::guard('mahasiswa')->user())
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                        <a class="nav-link {{ Request::is('m') ? 'active' : '' }}" href="#">
+                        <a class="nav-link {{ Request::is('m') ? 'active' : '' }}" href="{{ route('mahasiswa.app') }}">
                                 <i class="fa fa-home"></i>
                                 Dashboard
                             </a>
