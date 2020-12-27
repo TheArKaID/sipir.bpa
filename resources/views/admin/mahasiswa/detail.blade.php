@@ -138,6 +138,9 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    $vehicle = 0;
+                                @endphp
                                 @foreach ($mahasiswa->kendaraans as $kendaraan)
                                     @if (count($kendaraan->histories)!=0)
                                         @for ($i = count($kendaraan->histories)-1; $i > count($kendaraan->histories)-11; $i--)
@@ -145,6 +148,7 @@
                                             if($i<0){
                                                 break;
                                             }
+                                            $vehicle++;
                                             $h = $kendaraan->histories[$i];
                                         @endphp
                                             <tr>
@@ -153,6 +157,9 @@
                                             </tr>
                                         @endfor
                                     @else
+                                    @endif
+                                @endforeach
+                                @if ($vehicle==0)
                                     <tr>
                                         <td colspan="2">
                                             <div class="row">
@@ -168,8 +175,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    @endif
-                                @endforeach
+                                @endif
                             </tbody>
                         </table>
                     </div>
