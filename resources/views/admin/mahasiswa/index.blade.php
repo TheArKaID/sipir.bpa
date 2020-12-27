@@ -51,7 +51,7 @@
                                 <th scope="row">1</th>
                                 <td>{{$m->nama}}</td>
                                 <td>{{$m->nim}}</td>
-                                <td>{{0}}</td>
+                                <td>{{$m->getTotalKendaraan()}}</td>
                                 <td>
                                     <a href="{{ route('app.mahasiswa.edit', $m->id) }}" id="btnEdit" class="btn btn-warning">Edit</a>
                                     <a onclick="deleteMe('{{ route('app.mahasiswa.hapus', $m->id) }}')"  class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</a>

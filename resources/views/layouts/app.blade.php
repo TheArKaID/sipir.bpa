@@ -35,7 +35,7 @@
 
 <body>
     <nav class="navbar navbar-dark sticky-top bg-danger flex-md-nowrap p-0 navbar-expand-md">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0 {{ Auth::check() ? '' : 'bg-danger' }}" href="#">
             {{ config('app.name', 'Laravel') }}
         </a>
         <ul class="navbar-nav px-3" style="right: 15px !important; position: fixed;">

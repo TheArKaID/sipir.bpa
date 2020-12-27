@@ -48,6 +48,11 @@ class Mahasiswa extends Authenticatable
     {
         return $this->hasMany('App\Kendaraan');
     }
+
+    public function getTotalKendaraan()
+    {
+        return $this->kendaraans()->count();
+    }
     
     protected static function boot() {
         parent::boot();
