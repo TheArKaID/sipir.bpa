@@ -13,6 +13,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property string $created_at
  * @property string $updated_at
  */
+// Representasi table admin yang inherit ke Class User/Authenticable
 class Admin extends Authenticatable
 {
     /**

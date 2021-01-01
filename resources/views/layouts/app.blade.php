@@ -57,6 +57,11 @@
                         {{ __('Profile') }}
                     </a>
                     @endif
+                    @if(Auth::guard('web')->user())
+                    <a class="dropdown-item" href="{{ route('app.profile') }}">
+                        {{ __('Profile') }}
+                    </a>
+                    @endif
                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
                     </a>

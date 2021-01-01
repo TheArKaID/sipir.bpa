@@ -27,6 +27,9 @@ Route::middleware('auth:web',)->group(function () {
     });
     Route::get('/app/dashboard', 'Admin\DashboardController@index')->name('app.dashboard');
     
+    Route::get('/app/profile', "Admin\ProfileController@index")->name('app.profile');
+    Route::post('/app/profile', "Admin\ProfileController@update")->name('app.profile.post');
+
     Route::get('/app/mahasiswa', 'Admin\MahasiswaController@index')->name('app.mahasiswa');
     Route::post('/app/mahasiswa', 'Admin\MahasiswaController@tambah')->name('app.mahasiswa.tambah');
     Route::get('/app/mahasiswa/{id}', 'Admin\MahasiswaController@edit')->name('app.mahasiswa.edit');
