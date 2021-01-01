@@ -52,6 +52,11 @@
                     {{ Auth::user()->nama }} <span class="caret"></span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                    @if(Auth::guard('mahasiswa')->user())
+                    <a class="dropdown-item" href="{{ route('mahasiswa.profile') }}">
+                        {{ __('Profile') }}
+                    </a>
+                    @endif
                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
                     </a>
@@ -102,19 +107,19 @@
                     @if(Auth::guard('mahasiswa')->user())
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                        <a class="nav-link {{ Request::is('m') ? 'active' : '' }}" href="{{ route('mahasiswa.app') }}">
+                        <a class="nav-link {{ Request::is('student') ? 'active' : '' }}" href="{{ route('mahasiswa.app') }}">
                                 <i class="fa fa-home"></i>
                                 Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::is('m/kendaraan*') ? 'active' : '' }}" href="{{ route('mahasiswa.kendaraan') }}">
+                            <a class="nav-link {{ Request::is('student/kendaraan*') ? 'active' : '' }}" href="{{ route('mahasiswa.kendaraan') }}">
                                 <i class="fa fa-motorcycle"></i>
                                 Kendaraan
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::is('m/simulator*') ? 'active' : '' }}" href="{{ route('mahasiswa.simulator') }}">
+                            <a class="nav-link {{ Request::is('student/simulator*') ? 'active' : '' }}" href="{{ route('mahasiswa.simulator') }}">
                                 <i class="fab fa-simplybuilt"></i>
                                 Simulator
                             </a>

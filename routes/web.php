@@ -38,14 +38,17 @@ Route::get('/student/login', "Auth\MahasiswaAuthController@login")->name('mahasi
 Route::post('/student/login', "Auth\MahasiswaAuthController@postLogin")->name('mahasiswa.postLogin');
 
 Route::middleware('auth:mahasiswa')->group(function () {
-    Route::get('/m', "Mahasiswa\MahasiswaController@index")->name('mahasiswa.app');
-    
-    Route::get('/m/kendaraan', "Mahasiswa\KendaraanController@index")->name('mahasiswa.kendaraan');
-    Route::post('/m/kendaraan', "Mahasiswa\KendaraanController@tambah")->name('mahasiswa.kendaraan.tambah');
-    Route::get('/m/kendaraan/{id}', "Mahasiswa\KendaraanController@detail")->name('mahasiswa.kendaraan.detail');
-    Route::post('/m/kendaraan/{id}', "Mahasiswa\KendaraanController@simpan")->name('mahasiswa.kendaraan.simpan');
-    Route::post('/m/kendaraan/delete/{id}', "Mahasiswa\KendaraanController@hapus")->name('mahasiswa.kendaraan.hapus');
+    Route::get('/student', "Mahasiswa\MahasiswaController@index")->name('mahasiswa.app');
 
-    Route::get('/m/simulator', "Mahasiswa\SimulatorController@index")->name('mahasiswa.simulator');
-    Route::post('/m/simulator', "Mahasiswa\SimulatorController@parkir")->name('mahasiswa.simulator.post');
+    Route::get('/student/profile', "Mahasiswa\ProfileController@index")->name('mahasiswa.profile');
+    Route::post('/student/profile', "Mahasiswa\ProfileController@update")->name('mahasiswa.profile.post');
+    
+    Route::get('/student/kendaraan', "Mahasiswa\KendaraanController@index")->name('mahasiswa.kendaraan');
+    Route::post('/student/kendaraan', "Mahasiswa\KendaraanController@tambah")->name('mahasiswa.kendaraan.tambah');
+    Route::get('/student/kendaraan/{id}', "Mahasiswa\KendaraanController@detail")->name('mahasiswa.kendaraan.detail');
+    Route::post('/student/kendaraan/{id}', "Mahasiswa\KendaraanController@simpan")->name('mahasiswa.kendaraan.simpan');
+    Route::post('/student/kendaraan/delete/{id}', "Mahasiswa\KendaraanController@hapus")->name('mahasiswa.kendaraan.hapus');
+
+    Route::get('/student/simulator', "Mahasiswa\SimulatorController@index")->name('mahasiswa.simulator');
+    Route::post('/student/simulator', "Mahasiswa\SimulatorController@parkir")->name('mahasiswa.simulator.post');
 });
