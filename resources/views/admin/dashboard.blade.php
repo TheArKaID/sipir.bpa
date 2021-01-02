@@ -3,16 +3,17 @@
 @section('content')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
     <h1 class="h2">Dashboard</h1>
-    {{-- <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <small><i>Download Report </i>&nbsp; | &nbsp; </small>
         <div class="btn-group mr-2">
-            <button class="btn btn-sm btn-outline-secondary">Share</button>
-            <button class="btn btn-sm btn-outline-secondary">Export</button>
+            <a href="{{ route('app.dashboard.print-week') }}" class="btn btn-sm btn-outline-success">Last Week</a>
+            <a href="{{ route('app.dashboard.print-all') }}" class="btn btn-sm btn-outline-success">All</a>
         </div>
-        <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+        {{-- <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
             <span data-feather="calendar"></span>
             This week
-        </button>
-    </div> --}}
+        </button> --}}
+    </div>
 </div>
 <div class="card">
     <div class="card-body">

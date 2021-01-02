@@ -36,4 +36,8 @@ class History extends Model
      */
     protected $fillable = ['kendaraan_id', 'tipe', 'waktu', 'created_at', 'updated_at'];
 
+    public function kendaraan()
+    {
+        return $this->belongsTo('App\Kendaraan');
+    }
 }
