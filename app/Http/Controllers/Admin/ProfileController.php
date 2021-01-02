@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\Profiling;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -18,30 +18,9 @@ class ProfileController extends Controller
 
     public function update(Request $request)
     {
-        $request->validate([
-            "nama"=>"required|string",
-            "email"=>"required|email",
-            "username"=>"required|string",
-        ]);
-
-        $user = Auth::user();
-
-        if($request->password || $request->repassword){
-            $request->validate([
-                "password"=>"required|string|min:8",
-                "repassword"=>"required|string|min:8"
-            ]);
-            if(!($request->password==$request->repassword)){
-                return redirect()->back()->withErrors(['errors'=>'Password and Repassword must same'])->withInput();
-            }
-            $user->password = Hash::make($request->password);
-        }
-
-        $user->nama = $request->nama;
-        $user->email = $request->email;
-        $user->username = $request->username;
-
-        $user->save();
+        $profiling = new Profiling;
+        $profiling->email = $request->email;
+        $profiling->update($request);
         
         return redirect()->back()->with('success', 'Profile Updated');
     }
