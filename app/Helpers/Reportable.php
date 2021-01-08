@@ -3,8 +3,7 @@
     namespace App\Helpers;
 
     interface Reportable {
-        public function printWeek();
-        public function printAll();
+        public function print($week = false);
     }
 
 ?>

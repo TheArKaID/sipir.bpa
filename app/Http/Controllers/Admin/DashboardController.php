@@ -66,15 +66,27 @@ class DashboardController extends Controller implements Reportable
     }
 
     /**
+     * The Printer
+     */
+    public function print($week = false)
+    {
+        if($week) {
+            $start = Carbon::now()->subDays(7);
+            $end = Carbon::now();
+            // dd($start);
+            $catatan = History::whereBetween('waktu', [$start, $end])->get();
+        } else {
+            $catatan = History::all();
+        }
+        return $catatan;
+    }
+    
+    /**
      * Print data last 7 days
      */
     public function printWeek()
     {
-        $start = Carbon::now()->subDays(7);
-        $end = Carbon::now();
-        // dd($start);
-        $catatan = History::whereBetween('waktu', [$start, $end])->get();
-        // dd($catatan);
+        $catatan = $this->print(true);
         $histories = $this->pairingInOut($catatan);
 
         return $this->spreadSheetMaker($histories);
@@ -85,8 +97,7 @@ class DashboardController extends Controller implements Reportable
      */
     public function printAll()
     {
-        $catatan = History::all();
-        
+        $catatan = $this->print();
         $histories = $this->pairingInOut($catatan);
 
         return $this->spreadSheetMaker($histories);
