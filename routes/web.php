@@ -26,8 +26,7 @@ Route::middleware('auth:web',)->group(function () {
         return redirect()->route('app.dashboard');
     });
     Route::get('/app/dashboard', 'Admin\DashboardController@index')->name('app.dashboard');
-    Route::get('/app/print-week', 'Admin\DashboardController@printWeek')->name('app.dashboard.print-week');
-    Route::get('/app/print-all', 'Admin\DashboardController@printAll')->name('app.dashboard.print-all');
+    Route::get('/app/print/{week}', 'Admin\DashboardController@print')->name('app.dashboard.print');
     
     Route::get('/app/profile', "Admin\ProfileController@index")->name('app.profile');
     Route::post('/app/profile', "Admin\ProfileController@update")->name('app.profile.post');

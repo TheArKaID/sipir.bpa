@@ -73,31 +73,30 @@ class DashboardController extends Controller implements Reportable
         if($week) {
             $start = Carbon::now()->subDays(7);
             $end = Carbon::now();
-            // dd($start);
+            
             $catatan = History::whereBetween('waktu', [$start, $end])->get();
+            return $this->printWeek($catatan);
         } else {
             $catatan = History::all();
+            return $this->printAll($catatan);
         }
-        return $catatan;
     }
     
     /**
      * Print data last 7 days
      */
-    public function printWeek()
+    public function printWeek($catatan)
     {
-        $catatan = $this->print(true);
         $histories = $this->pairingInOut($catatan);
 
         return $this->spreadSheetMaker($histories);
     }
 
     /**
-     * Print data all the day
+     * Print data all the days
      */
-    public function printAll()
+    public function printAll($catatan)
     {
-        $catatan = $this->print();
         $histories = $this->pairingInOut($catatan);
 
         return $this->spreadSheetMaker($histories);

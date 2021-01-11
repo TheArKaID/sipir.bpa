@@ -6,8 +6,8 @@
     <div class="btn-toolbar mb-2 mb-md-0">
         <small><i>Download Report </i>&nbsp; | &nbsp; </small>
         <div class="btn-group mr-2">
-            <a href="{{ route('app.dashboard.print-week') }}" class="btn btn-sm btn-outline-success">Last Week</a>
-            <a href="{{ route('app.dashboard.print-all') }}" class="btn btn-sm btn-outline-success">All</a>
+            <a href="{{ route('app.dashboard.print', 1) }}" class="btn btn-sm btn-outline-success">Last Week</a>
+            <a href="{{ route('app.dashboard.print', 0) }}" class="btn btn-sm btn-outline-success">All</a>
         </div>
         {{-- <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
             <span data-feather="calendar"></span>
