@@ -1,9 +1,9 @@
 <?php
 
-    namespace App\Helpers;
+namespace App\Helpers;
 
-    interface Reportable {
-        public function print($week = false);
-    }
+interface Reportable {
+    public function print($week = false);
+}
 
 ?>
